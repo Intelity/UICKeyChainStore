@@ -360,7 +360,8 @@ static NSString *_defaultService;
 {
     NSMutableDictionary *query = [self query];
     query[(__bridge __strong id)kSecAttrAccount] = key;
-    
+    query[(__bridge __strong id)kSecUseNoAuthenticationUI] = (__bridge id)kCFBooleanTrue;;
+
     OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)query, NULL);
     return status == errSecSuccess;
 }
