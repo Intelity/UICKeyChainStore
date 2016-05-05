@@ -363,7 +363,7 @@ static NSString *_defaultService;
     query[(__bridge __strong id)kSecUseNoAuthenticationUI] = (__bridge id)kCFBooleanTrue;;
 
     OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)query, NULL);
-    return status == errSecSuccess;
+    return status == errSecSuccess || status == errSecInteractionNotAllowed;
 }
 
 #pragma mark -
